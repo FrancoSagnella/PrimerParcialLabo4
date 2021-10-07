@@ -20,11 +20,11 @@ export class AltaRepartidorComponent implements OnInit {
   ngOnInit(): void {
     this.formGroup = this.fb.group({
       'dni':['',[Validators.required,Validators.min(10000000),Validators.max(99999999)]],
-      'nombre':['',[Validators.required, this.validadorDeEspacios]],
+      'nombre':['',Validators.required],
       'edad':['',[Validators.required,Validators.min(18),Validators.max(100)]],
-      'capTransporte':['',Validators.required, ,Validators.min(1),Validators.max(50)],
-      'paisOrigen':['',[Validators.required]],
-      'unidadPropia':['',[Validators.required]],
+      'capTransporte':['',[Validators.required,Validators.min(1),Validators.max(50)]],
+      'paisOrigen':['',Validators.required],
+      'unidadPropia':[true],
     });
   }
 
@@ -44,20 +44,11 @@ export class AltaRepartidorComponent implements OnInit {
   }
 
   volver(){
+    console.info('form', this.formGroup);
     this.router.navigate(['/bienvenida']);
   }
 
   paisElegido(e:any) {
     this.formGroup.controls.paisOrigen.setValue(e.name.common);
   }
-
-  private validadorDeEspacios(control:AbstractControl):null|object{
-    let nombre:string = control.value;
-    // agarro el valor que hay dentro del control, y si incluye o no determinados caracteres, me devuelve bool
-    let espacios = nombre.includes(' ');
-    if(espacios)
-      return {validadorDeEspacios:true};
-    else
-      return {validadorDeEspacios:false};
-    }
 }

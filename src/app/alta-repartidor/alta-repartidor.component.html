@@ -12,7 +12,7 @@
           <div class="col-md-6 mb-3">
             <label for="dni" class="form-label">DNI</label>
             <input type="number" class="form-control" formControlName="dni" placeholder="Ingrese DNI">
-            <small *ngIf="formGroup.controls.dni.errors?.required  && formGroup.controls.dni.touched" class="invalid">El dni es requerido</small>
+            <small *ngIf="formGroup.controls.dni.errors?.required" class="invalid">El dni es requerido</small>
             <small *ngIf="formGroup.controls.dni.errors?.min || formGroup.controls.dni.errors?.max" class="invalid">Debe estar entre 10000000 y 99999999</small>
 
           </div>
@@ -20,24 +20,23 @@
             <label for="nombre" class="form-label">Nombre</label>
             <input type="text" class="form-control" formControlName="nombre" placeholder="Ingrese nombre">
             <small *ngIf="formGroup.controls.nombre.errors?.required  && formGroup.controls.nombre.touched" class="invalid">El nombre es requerido</small>
-        <small *ngIf="formGroup.controls.nombre.errors?.validadorDeEspacios" class="invalid">El nombre no debe tener espacios</small>
-
+            <!-- <small *ngIf="formGroup.controls.nombre.errors?.validadorDeEspacios" class="invalid">El nombre no debe tener espacios</small> -->
           </div>
           <div class="col-md-6 mb-3">
             <label for="edad" class="form-label">Edad</label>
             <input type="number" class="form-control" formControlName="edad" placeholder="Ingrese edad">
-            <small *ngIf="formGroup.controls.edad.errors?.required  && formGroup.controls.edad.touched" class="invalid">La edad es requerido</small>
+            <small *ngIf="formGroup.controls.edad.errors?.required" class="invalid">La edad es requerido</small>
             <small *ngIf="formGroup.controls.edad.errors?.min || formGroup.controls.edad.errors?.max" class="invalid">Debe estar entre 18 y 100</small>
           </div>
           <div class="col-md-6 mb-3">
             <label for="dni" class="form-label">Pais</label>
             <input readonly type="tex" class="form-control" formControlName="paisOrigen" placeholder="Ingrese edad">
-            <small *ngIf="formGroup.controls.paisOrigen.errors?.required  && formGroup.controls.paisOrigen.touched" class="invalid">El pais es requerido</small>
+            <small *ngIf="formGroup.controls.paisOrigen.errors?.required" class="invalid">El pais es requerido</small>
           </div>
           <div class="col-md-6 mb-3">
             <label for="edad" class="form-label">Capacidad de Transporte</label>
             <input type="number" class="form-control" formControlName="capTransporte" placeholder="Ingrese capacidad de transporte">
-            <small *ngIf="formGroup.controls.capTransporte.errors?.required  && formGroup.controls.capTransporte.touched" class="invalid">La capTransporte es requerido</small>
+            <small *ngIf="formGroup.controls.capTransporte.errors?.required" class="invalid">La capTransporte es requerido</small>
             <small *ngIf="formGroup.controls.capTransporte.errors?.min || formGroup.controls.capTransporte.errors?.max" class="invalid">Debe estar entre 1 y 50</small>
           </div>
         </div>
@@ -50,10 +49,10 @@
             <button type="submit" class="btn btn-primary btn-block" [disabled]="formGroup.invalid">
               Aceptar
             </button>
-            <button class="btn btn-info btn-block" (click)="volver()">Volver</button>
           </div>
         </div>
       </form>
+      <button class="btn btn-info btn-block" (click)="volver()">Volver</button>
     </div>
     <div class="col">
       <app-tabla-paises (elegirPais)="paisElegido($event)"></app-tabla-paises>
