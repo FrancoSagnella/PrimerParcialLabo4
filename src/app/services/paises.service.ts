@@ -24,6 +24,6 @@ export class PaisesService {
     });
   }
   traerTodosOk(){
-    return this.http.get('https://restcountries.com/v3/region/South America');
+    return this.http.get('https://restcountries.com/v3.1/all');
   }
 }

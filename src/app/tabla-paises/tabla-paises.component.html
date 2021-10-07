@@ -1,0 +1,19 @@
+<h1>Tabla de Paises</h1>
+<table style="width:100%" class="table">
+    <tr>
+        <td>
+            Nombre
+        </td>
+        <td>
+            Foto
+        </td>
+    </tr>
+    <tr *ngFor="let item of listaPaises" (click)="onElegirPais(item)">
+        <td *ngIf="item.subregion == 'Western Africa' || item.subregion == 'Southern Europe'">
+            {{item.name.common}}
+        </td>
+        <td *ngIf="item.subregion == 'Western Africa' || item.subregion == 'Southern Europe'">
+            <img [src]="item.flags.png" width="90px" height="90px" alt="">
+        </td>
+    </tr>
+</table>
