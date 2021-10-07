@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="container">
     <div class="row">
-      <!-- <div class="col-12 col-md-2"></div> -->
+      <div class="col-12 col-md-2"></div>
       <div class="col-12 col-md-4" >
         <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="iniciarSesion()">
           <h2 class="form-signin-heading">Iniciá Sesión!</h2>
@@ -11,18 +11,18 @@
           <br>
         </form>
       </div>
-      <!-- <div class="col-12 col-md-4">
+      <div class="col-12 col-md-4">
         <div class="form-signin">
           <h2 class="form-signin-heading">Iniciá Rápido!</h2>
-            <div class="div-user" *ngFor="let usuario of users" (click)="seleccionarUsuario(usuario.data.correo, usuario.data.clave)">
-              <p>{{usuario.data.correo}}</p>
+            <div>
+              <p (click)="seleccionarUsuario('admin@admin.com', '123456')">admin@admin.com</p>
+              <p (click)="seleccionarUsuario('empleado@empleado.com', '123456')">empleado@empleado.com</p>
             </div>
-
         </div>
       </div>
       <div class="col-12 col-md-2"></div>
 
-    </div> -->
+    </div>
   </div>
 </div>
 

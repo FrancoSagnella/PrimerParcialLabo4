@@ -33,4 +33,7 @@ export class LoginComponent implements OnInit {
     }
 
   }
+  seleccionarUsuario(email:string, password:string){
+    this.loginForm.setValue({email:email, password:password});
+  }
 }
