@@ -1,4 +1,4 @@
-<h1>Tabla de Paises</h1>
+<!-- <h1>Tabla de Paises</h1>
 <div style="height:610px;overflow:auto">
   <table style="width:100%" class="table" >
       <tr>
@@ -18,4 +18,16 @@
           </td>
       </tr>
   </table>
-</div>
+</div> -->
+
+<h4 class="d-flex justify-content-between align-items-center mb-3">
+  <span class="text-primary">Listado de paises</span>
+</h4>
+<ul class="list-group mb-3">
+  <div *ngFor="let item of listaPaises" (click)="onElegirPais(item)">
+    <li *ngIf="item.subregion == 'Western Africa' || item.subregion == 'Southern Europe'" class="list-group-item d-flex justify-content-between lh-sm">
+      <h6 class="my-0">{{item.name.common}}</h6>
+      <img [src]="item.flags.png" width="90px" height="90px" alt="">
+    </li>
+  </div>
+</ul>

@@ -1,4 +1,4 @@
-
+<!--
 <div class="container">
   <div class="row">
     <div class="col">
@@ -20,7 +20,7 @@
             <label for="nombre" class="form-label">Nombre</label>
             <input type="text" class="form-control" formControlName="nombre" placeholder="Ingrese nombre">
             <small *ngIf="formGroup.controls.nombre.errors?.required  && formGroup.controls.nombre.touched" class="invalid">El nombre es requerido</small>
-            <!-- <small *ngIf="formGroup.controls.nombre.errors?.validadorDeEspacios" class="invalid">El nombre no debe tener espacios</small> -->
+
           </div>
           <div class="col-md-6 mb-3">
             <label for="edad" class="form-label">Edad</label>
@@ -60,4 +60,81 @@
     </div>
   </div>
 
+  </div> -->
+
+  <div class="container">
+    <main>
+      <div class="py-5 text-center">
+        <!-- <img class="d-block mx-auto mb-4" src="/docs/{{< param docs_version >}}/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+        <h2>Alta de Repartidores</h2>
+      </div>
+
+      <div class="row g-5">
+
+        <!--TABLA DE PAISES-->
+        <div class="col-md-5 col-lg-4 order-md-last">
+          <app-tabla-paises (elegirPais)="paisElegido($event)"></app-tabla-paises>
+        </div>
+
+
+        <!--FORM-->
+        <div class="col-md-7 col-lg-8">
+          <h4 class="mb-3">Datos del Repartidor</h4>
+          <form [formGroup]="formGroup" (ngSubmit)="enviar()">
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="firstName" class="form-label">Nombre</label>
+                <input type="text" class="form-control" formControlName="nombre" placeholder="Ingrese nombre">
+                <small *ngIf="formGroup.controls.nombre.errors?.required  && formGroup.controls.nombre.touched" class="invalid">El nombre es requerido</small>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="lastName" class="form-label">DNI</label>
+                <input type="number" class="form-control" formControlName="dni" placeholder="Ingrese DNI">
+                <small *ngIf="formGroup.controls.dni.errors?.required" class="invalid">El dni es requerido</small>
+                <small *ngIf="formGroup.controls.dni.errors?.min || formGroup.controls.dni.errors?.max" class="invalid">Debe estar entre 10000000 y 99999999</small>
+              </div>
+
+              <div class="col-12">
+                <label for="username" class="form-label">Edad</label>
+                <input type="number" class="form-control" formControlName="edad" placeholder="Ingrese edad">
+                <small *ngIf="formGroup.controls.edad.errors?.required" class="invalid">La edad es requerido</small>
+                <small *ngIf="formGroup.controls.edad.errors?.min || formGroup.controls.edad.errors?.max" class="invalid">Debe estar entre 18 y 100</small>
+              </div>
+
+              <div class="col-12">
+                <label for="email" class="form-label">Pais <span class="text-muted"></span></label>
+                <input readonly type="tex" class="form-control" formControlName="paisOrigen" placeholder="Pais seleccionado">
+                <small *ngIf="formGroup.controls.paisOrigen.errors?.required" class="invalid">El pais es requerido</small>
+                <div class="col-4 offset-5">
+                  <br>
+                  <img  *ngIf="imgPais" [src]="imgPais" width="120px" height="90px" alt="">
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="address" class="form-label">Capacidad de transporte</label>
+                <input type="number" class="form-control" formControlName="capTransporte" placeholder="Ingrese capacidad de transporte">
+                <small *ngIf="formGroup.controls.capTransporte.errors?.required" class="invalid">La capTransporte es requerido</small>
+                <small *ngIf="formGroup.controls.capTransporte.errors?.min || formGroup.controls.capTransporte.errors?.max" class="invalid">Debe estar entre 1 y 50</small>
+              </div>
+
+              <div class="col-12">
+                <input type="checkbox" class="form-check-input" id="unidadPropia" formControlName="unidadPropia">
+                <label class="form-check-label" for="unidadPropia">
+                  Tiene unidad propia?
+                </label>
+              </div>
+
+            <hr class="my-4">
+            <button type="submit" class="btn btn-primary btn-block" [disabled]="formGroup.invalid">
+              Aceptar
+            </button>
+            <button class="btn btn-info btn-block" (click)="volver()">Volver</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
   </div>
+
