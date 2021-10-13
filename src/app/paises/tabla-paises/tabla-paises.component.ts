@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { PaisesService } from '../services/paises.service';
+import { PaisesService } from '../../services/paises.service';
 
 @Component({
   selector: 'app-tabla-paises',

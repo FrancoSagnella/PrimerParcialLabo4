@@ -13,9 +13,14 @@ import {HttpClient, HttpClientModule, HttpHandler} from '@angular/common/http';
 import {AngularFireStorageModule} from '@angular/fire/compat/storage';
 import { LoginComponent } from './login/login.component';
 import { BienvenidaComponent } from './bienvenida/bienvenida.component';
-import { AltaRepartidorComponent } from './alta-repartidor/alta-repartidor.component';
+import { AltaRepartidorComponent } from './repartidor/alta-repartidor/alta-repartidor.component';
 import { ErrorComponent } from './error/error.component';
-import { TablaPaisesComponent } from './tabla-paises/tabla-paises.component';
+import { TablaPaisesComponent } from './paises/tabla-paises/tabla-paises.component';
+import { ListaRepartidoresComponent } from './repartidor/lista-repartidores/lista-repartidores.component';
+import { NavComponent } from './nav/nav.component';
+import { TablaRepartidoresComponent } from './repartidor/lista-repartidores/tabla-repartidores/tabla-repartidores.component';
+import { DetalleRepartidoresComponent } from './repartidor/lista-repartidores/detalle-repartidores/detalle-repartidores.component';
+import { DetallePaisComponent } from './paises/detalle-pais/detalle-pais.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +30,11 @@ import { TablaPaisesComponent } from './tabla-paises/tabla-paises.component';
     AltaRepartidorComponent,
     ErrorComponent,
     TablaPaisesComponent,
+    ListaRepartidoresComponent,
+    NavComponent,
+    TablaRepartidoresComponent,
+    DetalleRepartidoresComponent,
+    DetallePaisComponent,
   ],
   imports: [
     BrowserModule,

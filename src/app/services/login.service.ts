@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Usuario } from '../usuarios/usuarios';
-import { usuarios } from '../usuarios/usuarios';
+import { Observable } from 'rxjs';
+import { Usuario } from '../interfaces/usuarios/usuarios';
+import { usuarios } from '../interfaces/usuarios/usuarios';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +10,7 @@ import { usuarios } from '../usuarios/usuarios';
 export class LoginService {
 
   usuarioLogueado?:Usuario;
+  estaLogueado!: Observable<boolean>;
   constructor() { }
 
   iniciarSesion(usuario:Usuario){

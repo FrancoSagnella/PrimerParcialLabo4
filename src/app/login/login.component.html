@@ -15,8 +15,8 @@
         <div class="form-signin">
           <h2 class="form-signin-heading">Iniciá Rápido!</h2>
             <div>
-              <p (click)="seleccionarUsuario('admin@admin.com', '123456')">admin@admin.com</p>
-              <p (click)="seleccionarUsuario('empleado@empleado.com', '123456')">empleado@empleado.com</p>
+              <p *ngFor="let usuario of users" (click)="seleccionarUsuario(usuario.email, usuario.password)">{{usuario.email}}</p>
+
             </div>
         </div>
       </div>

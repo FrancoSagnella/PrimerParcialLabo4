@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Repartidor } from '../repartidor';
+import { Repartidor } from '../../interfaces/repartidor';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FirestoreService } from '../services/firestore.service';
+import { FirestoreService } from '../../services/firestore.service';
 
 @Component({
   selector: 'app-alta-repartidor',
@@ -13,6 +13,7 @@ import { FirestoreService } from '../services/firestore.service';
 export class AltaRepartidorComponent implements OnInit {
 
   repartidor:Repartidor = {id:'',dni:0,nombre:'',edad:0,capTransporte:0,paisOrigen:'',unidadPropia:false};
+  imgPais?:string;
   formGroup!:FormGroup;
 
   constructor(private fb:FormBuilder, private firestore:FirestoreService, private router:Router, private afs:AngularFirestore) { }
@@ -50,5 +51,6 @@ export class AltaRepartidorComponent implements OnInit {
 
   paisElegido(e:any) {
     this.formGroup.controls.paisOrigen.setValue(e.name.common);
+    this.imgPais = e.flags.png;
   }
 }

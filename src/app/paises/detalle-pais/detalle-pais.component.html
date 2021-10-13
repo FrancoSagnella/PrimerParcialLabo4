@@ -1,0 +1,12 @@
+<div *ngIf="repartidorRecibido" class="card mb-4 box-shadow">
+  <div  style="text-align: center;" *ngFor="let item of listaPaises">
+    <div *ngIf="item.name.common == repartidorRecibido.paisOrigen">
+      <p>Nombre: {{item.name.common}}</p>
+      <p>Bandera:</p>
+      <img [src]="item.flags.png" width="90px" height="90px" alt="">
+    </div>
+  </div>
+  <br>
+  <br>
+</div>
+

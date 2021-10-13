@@ -30,8 +30,9 @@
           </div>
           <div class="col-md-6 mb-3">
             <label for="dni" class="form-label">Pais</label>
-            <input readonly type="tex" class="form-control" formControlName="paisOrigen" placeholder="Ingrese edad">
+            <input readonly type="tex" class="form-control" formControlName="paisOrigen" placeholder="Pais seleccionado">
             <small *ngIf="formGroup.controls.paisOrigen.errors?.required" class="invalid">El pais es requerido</small>
+            <img style="margin-left: 75px; margin-top: 20px;" *ngIf="imgPais" [src]="imgPais" width="90px" height="90px" alt="">
           </div>
           <div class="col-md-6 mb-3">
             <label for="edad" class="form-label">Capacidad de Transporte</label>

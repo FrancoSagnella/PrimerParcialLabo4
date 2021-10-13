@@ -1,0 +1,16 @@
+<div *ngIf="repartidorRecibido" class="card mb-4 box-shadow">
+  <div class="card-body" style="text-align: center; color: black;">
+    <p>Nombre: {{repartidorRecibido.nombre}}</p>
+    <p>DNI: {{repartidorRecibido.dni}}</p>
+    <p>Edad: {{repartidorRecibido.edad}}</p>
+    <p>Pais: {{repartidorRecibido.paisOrigen}}</p>
+    <p>Pais: {{repartidorRecibido.capTransporte}}</p>
+    <p *ngIf="repartidorRecibido.unidadPropia">Unidad propia: Si</p>
+    <p *ngIf="!repartidorRecibido.unidadPropia">Unidad propia: No</p>
+
+      <br>
+      <br>
+    <button class="btn btn-secondary" (click)="limpiarDetalle()">Limpiar</button>
+  </div>
+</div>
+
