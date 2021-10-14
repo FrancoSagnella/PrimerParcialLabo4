@@ -13,7 +13,7 @@ import { PedidoGuardGuard } from 'src/app/services/pedido-guard.guard';
 })
 export class ModificarPedidoComponent implements OnInit, OnChanges {
 
-  @Input() pedido!:Pedido;
+  @Input() pedido!:any;
   formGroup!:FormGroup;
 
   constructor(private fb:FormBuilder, private firestore:FirestoreService, private router:Router, private afs:AngularFirestore) { }
@@ -57,7 +57,12 @@ export class ModificarPedidoComponent implements OnInit, OnChanges {
       this.formGroup.controls.descripcion.setValue('');
       this.formGroup.controls.peso.setValue('');
       this.formGroup.controls.precio.setValue('');
+      this.pedido = undefined;
     });
+  }
+
+  limpiar(){
+    this.pedido = undefined;
   }
 
 }

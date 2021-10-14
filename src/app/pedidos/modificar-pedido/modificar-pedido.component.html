@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="pedido">
   <main>
     <div class="py-5 text-center">
     </div>
@@ -66,9 +66,16 @@
           <button type="submit" class="btn btn-primary btn-block" [disabled]="formGroup.invalid">
             Modificar
           </button>
+          <button (click)="limpiar()" class="btn btn-primary btn-block">
+            Cancelar
+          </button>
           </div>
         </form>
       </div>
     </div>
   </main>
+</div>
+
+<div *ngIf="!pedido">
+  <h2>Seleccionar uno para modificarlo</h2>
 </div>

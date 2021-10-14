@@ -10,7 +10,7 @@ import { Pedido } from 'src/app/interfaces/pedido';
 export class ListaPedidosComponent implements OnInit {
 
   listadoPedidos:Pedido[] = [];
-  pedidoSeleccionado!:Pedido;
+  pedidoSeleccionado!:any;
 
   constructor(private afs:AngularFirestore) { }
 
@@ -26,6 +26,7 @@ export class ListaPedidosComponent implements OnInit {
 
   seleccionarPedido(item:Pedido)
   {
+    this.pedidoSeleccionado = undefined
     this.pedidoSeleccionado = item;
   }
 

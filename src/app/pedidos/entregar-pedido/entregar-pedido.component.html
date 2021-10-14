@@ -1,1 +1,11 @@
-<p>entregar-pedido works!</p>
+<div *ngIf="pedido">
+  <h2>Pedido de: {{pedido.cliente}}</h2>
+  <h3>Estado: {{pedido.estado}}</h3>
+  <button (click)="entregar()">Entregar</button>
+  <button (click)="rechazar()">Rechazar</button>
+  <button (click)="cancelar()">Cancelar</button>
+</div>
+
+<div *ngIf="!pedido">
+  <h2>Seleccionar pedido para verlo</h2>
+</div>
