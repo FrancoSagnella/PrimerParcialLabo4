@@ -1,0 +1,74 @@
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+    </div>
+
+    <div class="row g-5">
+
+      <!--FORM-->
+      <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Datos del Pedido</h4>
+        <form [formGroup]="formGroup" (ngSubmit)="enviar()">
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="firstName" class="form-label">Cliente</label>
+              <input type="text" class="form-control" formControlName="cliente" placeholder="Ingrese nombre">
+              <small *ngIf="formGroup.controls.cliente.errors?.required  && formGroup.controls.cliente.touched" class="invalid">El nombre del cliente es requerido</small>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="lastName" class="form-label">email</label>
+              <input readonly type="text" class="form-control" formControlName="email" placeholder="Ingrese email">
+              <small *ngIf="formGroup.controls.email.errors?.required && formGroup.controls.email.touched" class="invalid">El email del cliente es requerido</small>
+            </div>
+
+            <div class="col-12">
+              <label for="username" class="form-label">Localidad</label>
+              <select class="form-select" id="sexo" formControlName="localidad">
+                <option value="">Seleccione uno</option>
+                <option value="glew">Glew</option>
+                <option value="longchamps">Longchamps</option>
+                <option value="burzaco">Burzaco</option>
+                <option value="adrogue">Adrogue</option>
+                <option value="lomas de zamora">Lomas de Zamora</option>
+              </select>
+              <small *ngIf="formGroup.get('localidad')?.errors && formGroup.controls.localidad.touched" class="invalid">La localidad es requerida</small>
+            </div>
+
+            <div class="col-12">
+              <label for="email" class="form-label">Direccion <span class="text-muted"></span></label>
+              <input type="text" class="form-control" formControlName="direccion" placeholder="Ingrese direccion">
+              <small *ngIf="formGroup.controls.direccion.errors?.required" class="invalid">La direccion es requerido</small>
+            </div>
+
+            <div class="col-12">
+              <label for="email" class="form-label">Descripcion <span class="text-muted"></span></label>
+              <input type="text" class="form-control" formControlName="descripcion" placeholder="Ingrese descripcion">
+              <small *ngIf="formGroup.controls.descripcion.errors?.required" class="invalid">La descripcion es requerido</small>
+              <small *ngIf="formGroup.controls.descripcion.errors?.maxLength" class="invalid">Debe tener como maximo 100 caracteres</small>
+            </div>
+
+            <div class="col-12">
+              <label for="address" class="form-label">Peso</label>
+              <input type="number" class="form-control" formControlName="peso" placeholder="Ingrese peso">
+              <small *ngIf="formGroup.controls.peso.errors?.required" class="invalid">El peso es requerido</small>
+              <small *ngIf="formGroup.controls.peso.errors?.min || formGroup.controls.peso.errors?.max" class="invalid">Debe estar entre 500 y 1000</small>
+            </div>
+
+            <div class="col-12">
+              <label for="address" class="form-label">Precio</label>
+              <input type="number" class="form-control" formControlName="precio" placeholder="Ingrese precio">
+              <small *ngIf="formGroup.controls.precio.errors?.required" class="invalid">El precio es requerido</small>
+            </div>
+
+
+          <hr class="my-4">
+          <button type="submit" class="btn btn-primary btn-block" [disabled]="formGroup.invalid">
+            Modificar
+          </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>

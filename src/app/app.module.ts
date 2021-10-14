@@ -21,7 +21,11 @@ import { NavComponent } from './nav/nav.component';
 import { TablaRepartidoresComponent } from './repartidor/lista-repartidores/tabla-repartidores/tabla-repartidores.component';
 import { DetalleRepartidoresComponent } from './repartidor/lista-repartidores/detalle-repartidores/detalle-repartidores.component';
 import { DetallePaisComponent } from './paises/detalle-pais/detalle-pais.component';
-
+import { CrearPedidoComponent } from './pedidos/crear-pedido/crear-pedido.component';
+import { ModificarPedidoComponent } from './pedidos/modificar-pedido/modificar-pedido.component';
+import { EntregarPedidoComponent } from './pedidos/entregar-pedido/entregar-pedido.component';
+import { ListaPedidosComponent } from './pedidos/lista-pedidos/lista-pedidos.component';
+import { ErrorAdminComponent } from './error-admin/error-admin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +39,11 @@ import { DetallePaisComponent } from './paises/detalle-pais/detalle-pais.compone
     TablaRepartidoresComponent,
     DetalleRepartidoresComponent,
     DetallePaisComponent,
+    ListaPedidosComponent,
+    CrearPedidoComponent,
+    ModificarPedidoComponent,
+    EntregarPedidoComponent,
+    ErrorAdminComponent,
   ],
   imports: [
     BrowserModule,
